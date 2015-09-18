@@ -1,0 +1,39 @@
+open csgo_items.txt and edit it there
+execute csgo_items_generator.bat
+
+This thing cannot edit, only append to existing item file or create new item. If you want to append to your items.bin file, edit csgo_items_generator.bat and delete the delete command and put your items.bin there.
+
+The csgo_items.txt format as follow:
+id, inventory, quality, rarity, level, def_index, {attrs}
+id and inventory = set this to zero, it will be assigned by the emu and the game
+def_index = item type, it can be weapon, coin, sticker, music kit, etc... see csgo/scripts/items/items_game.txt
+next to it is array of attributes, also see items_game.txt for list of available attributes for items
+
+It represent the number, from 1 to 400~ "paint_kits" in float. (See items_game.txt under paint_kits section)
+
+So 2 = 0x40000000, 3 = 0x40400000 and so on. You can convert them here: http://www.h-schmidt.net/FloatConverter/IEEE754.html
+
+Example aq_obsidian = 266 (decimal) = 0x43850000 (float) = 0x00 0x00 0x85 0x43 (le), weapon_fiveseven = 3. You will write like this:
+0 0 0 0 0 3 6=00008543
+
+The id and inventory must be set to zero, it will be set later by the emulator and the game.
+The quality is under "qualities" tag, there is normal (0), genuine (1), vintage (2), etc...
+Rarity is under "rarities" tag, there is default(0), common(1), uncommon(2), etc...
+Level is 1 by default, I don't know what actually is level means.
+item is item id, see under "items" tag.
+{attributes} is collection of attribute, can be found under "attributes" section.
+
+attributes valid for weapon:
+6 (texture) = float value, see under paint_kits tag
+7 (texture seed) = float value, this value can be any number
+8 (texture wear) = float value, usually this value below 0.1, you don't want it to wear badly. Example 0.005304
+80 (kill eater) = stattrak
+81 (score) = stattrak
+113 (sticker) = "sticker_kits"
+114 (sticker wear), float value, range is from 0 to 1.
+
+attribute valid for music kit (1314):
+166 (music id) = "music_definitions" tag
+
+attribute valid for sticker (1209):
+113 (sticker) = "sticker_kits"

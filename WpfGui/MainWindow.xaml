@@ -1,0 +1,25 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    x:Class="WpfGui.MainWindow"
+        Title="SSE CSGO Inventory Manager" Height="600" Width="800"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" MinWidth="500" MinHeight="350">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="settings" />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <TabControl>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Controls:MetroWindow>
